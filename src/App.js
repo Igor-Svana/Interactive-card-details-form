@@ -7,7 +7,7 @@ import ConfirmedCard from './components/confirmed-component/confirmed';
 
 function App() {
   const [inputs, setInputs] = useState()
-  const [confirmedState, setConfirmedState] = useState(true)
+  const [confirmedState, setConfirmedState] = useState(false)
 
   const setConfirmedCard = () => {
     setConfirmedState(!confirmedState)
