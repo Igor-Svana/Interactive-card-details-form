@@ -1,0 +1,148 @@
+.cards-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  margin-left: 8vw;
+}
+
+.card-front {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.card-back {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.card-image {
+  box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.24);
+  border-radius: 18px;
+}
+
+.card-info-container {
+  position: absolute;
+  color: hsl(0, 0%, 100%);
+  letter-spacing: 0.1em;
+  
+}
+
+.card-name-date {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  width: 350px;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+.date-place {
+  margin: 0;
+  width: 60px;
+}
+
+.card-date {
+  display: flex;
+  width: 60px;
+  align-items: center;
+}
+
+.card-back {
+  margin-left: 50px;
+}
+
+.card-logo {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  column-gap: 0.8em;
+  margin-bottom: 2.5em;
+}
+
+.dot {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: hsl(0, 0%, 100%);
+  display: inline-block;
+}
+.circle {
+  width: 20px;
+  height: 20px;
+  border: 1px solid hsl(270, 3%, 87%);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.cvc-container {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin-right: 2em;
+  margin-bottom: 0.8em;
+  color: hsl(0, 0%, 100%);
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 1250px) {
+  .cards-container {
+    flex-direction: column-reverse;
+    row-gap: 0em;
+    margin: 35px 0 0 0;
+  }
+  .card-image {
+    width: 300px;
+    border-radius: 8px;
+  }
+
+  .card-front {
+    margin-top: -4em;
+    justify-content: start;
+  }
+
+  .card-info-container {
+   margin-left: 27px;
+  }
+
+  .card-name-date {
+    height: 30px;
+    width: 250px;
+    font-size: 8px;
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    font-size: 18px;
+    letter-spacing: 0.15em;
+  }
+
+  .card-logo {
+    margin-bottom: 1.5em;
+  }
+
+  .dot {
+    width: 30px;
+    height: 30px;
+  }
+  .circle {
+    width: 15px;
+    height: 15px;
+  }
+
+  .cvc-container {
+    margin-right: 1.2em;
+    margin-bottom: 0.6em;
+   
+  }
+}

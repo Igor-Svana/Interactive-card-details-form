@@ -1,0 +1,47 @@
+.confirm-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: .5em;
+}
+
+.check-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-image: linear-gradient(
+    120deg,
+    hsl(249, 99%, 64%),
+    hsl(278, 94%, 30%)
+  );
+  color: hsl(0, 0%, 100%);
+  font-size: 28px;
+  margin-bottom: .8em;
+}
+
+h1 {
+  letter-spacing: 0.11em;
+  font-weight: 400;
+  color: hsl(278, 68%, 11%);
+}
+.conf-paragraph {
+  color: hsl(279, 6%, 55%);
+  font-size: 15px;
+  font-weight: 700;
+}
+h1, .conf-paragraph {
+    margin: 0;
+}
+.btn-continue{
+    margin-top: 2em;
+}
+
+@media (max-width: 1250px) {
+    .confirm-container {
+      margin-top: 5em;
+    }
+  }

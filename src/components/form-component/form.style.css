@@ -1,0 +1,100 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: hsl(278, 68%, 11%);
+}
+
+.error-label {
+  font-size: 9px;
+  color: hsl(0, 100%, 66%);
+  margin-top: 1em;
+  height: 8px;
+}
+
+.error-label-date {
+  width: 80px;
+}
+
+.invalid {
+  border-color: hsl(0, 100%, 66%);
+}
+
+input {
+  width: 350px;
+  height: 35px;
+  border: 0.5px solid;
+  border-radius: 8px;
+  color: hsl(278, 68%, 11%);
+  border-color: hsl(270, 3%, 87%);
+  text-indent: 1em;
+  margin-top: 0.4em;
+}
+
+input:focus {
+  outline: none !important;
+  background-image: linear-gradient(white, white),
+    linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  color: hsl(278, 68%, 11%);
+}
+
+input::placeholder {
+  color: hsl(270, 3%, 87%);
+}
+
+.card-details-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-date {
+  display: flex;
+  column-gap: 0.5em;
+}
+
+.card-date-input {
+  width: 65px;
+}
+
+.card-cvc-input {
+  width: 160px;
+}
+button {
+  width: 355.2px;
+  height: 45px;
+  background: hsl(278, 68%, 11%);
+  color: hsl(270, 3%, 87%);
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+button:active {
+  opacity: 0.7;
+}
+
+@media (max-width: 1250px) {
+  .form-container {
+    margin-top: 3em;
+  }
+  input {
+    width: 320px;
+  }
+  button {
+    width: 325.2px;
+  }
+
+  .card-date {
+    column-gap: 0em;
+  }
+
+  
+}
