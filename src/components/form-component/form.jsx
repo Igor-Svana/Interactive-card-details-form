@@ -31,47 +31,30 @@ const FormContainer = ({ onSetInputs, onSubmit }) => {
     },
   });
 
+  useEffect(() => {
+    window.addEventListener("keydown", inputHandler.bind(this, "number"));
+    return () => {
+      window.removeEventListener("keydown", inputHandler.bind(this, "number"));
+    };
+  }, []);
+
   const inputHandler = (inputVariant, e) => {
-    if (
-      inputVariant === "number" &&
-      e.target.value.split(" ").join("").length <
-        inputs.number.value.split(" ").join("").length &&
-      (e.target.value.split(" ").join("").length === 4 ||
-        e.target.value.split(" ").join("").length === 8 ||
-        e.target.value.split(" ").join("").length === 12)
-    ) {
-      e.target.value = e.target.value.slice(0, -1);
+    console.log(e.key);
+    if (inputVariant === "number" && !e.key) {
+      let inputValue = e.target.value.replace(/\s/g, "");
+      const regex = /(.{4})/g;
+      const formattedValue = inputValue.replace(regex, "$1 ");
+      e.target.value = formattedValue;
+    }
+    if (e.key === "Backspace") {
+      const inputValue = e.target.value;
+      const lastCharIndex = inputValue.length - 1;
+      const isLastCharSpace = inputValue[lastCharIndex] === " ";
+      if (isLastCharSpace && (lastCharIndex + 1) % 5 === 0) {
+        e.target.value = inputValue.slice(0, lastCharIndex);
+      }
     }
 
-    if (
-      inputVariant === "number" &&
-      e.target.value.split(" ").join("").length === 5 &&
-      e.target.value.split(" ").join("").length >
-        inputs.number.value.split(" ").join("").length
-    ) {
-      e.target.value =
-        e.target.value.substring(0, 4) + " " + e.target.value.substring(4, 8);
-    }
-    if (
-      inputVariant === "number" &&
-      e.target.value.split(" ").join("").length === 9 &&
-      e.target.value.split(" ").join("").length >
-        inputs.number.value.split(" ").join("").length
-    ) {
-      e.target.value =
-        e.target.value.substring(0, 9) + " " + e.target.value.substring(9, 12);
-    }
-    if (
-      inputVariant === "number" &&
-      e.target.value.split(" ").join("").length === 13 &&
-      e.target.value.split(" ").join("").length >
-        inputs.number.value.split(" ").join("").length
-    ) {
-      e.target.value =
-        e.target.value.substring(0, 14) +
-        " " +
-        e.target.value.substring(14, 16);
-    }
     setInputs((current) => {
       return {
         ...current,
@@ -145,8 +128,7 @@ const FormContainer = ({ onSetInputs, onSubmit }) => {
       });
       return;
     }
-      onSubmit();
-    
+    onSubmit();
   };
 
   useEffect(() => {
@@ -179,7 +161,6 @@ const FormContainer = ({ onSetInputs, onSubmit }) => {
           name: "number",
           id: "number",
           maxLength: "19",
-
           placeholder: "e.g. 1234 5678 9123 0000",
           onChange: inputHandler.bind(this, "number"),
           className: !inputs.number.isValid ? "invalid" : "",
@@ -263,9 +244,7 @@ const FormContainer = ({ onSetInputs, onSubmit }) => {
           </div>
         </div>
       </div>
-      <button onClick={onSubmitHandler}>
-        Confirm
-      </button>
+      <button onClick={onSubmitHandler}>Confirm</button>
     </div>
   );
 };
